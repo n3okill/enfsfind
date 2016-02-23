@@ -1,6 +1,6 @@
 {
   "name": "enfsfind",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "find items on filesystem for fs module of node",
   "license": "CC-BY-4.0",
   "author": {
