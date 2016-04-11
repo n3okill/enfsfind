@@ -69,8 +69,8 @@ No Filter:
 Filter (Function):
 
 ```js
-    function filterFn(item){
-        return item.stat.isFile() && item.path.indexOf("mp3") !== -1;
+    function filterFn(path, stat){
+        return stat.isFile() && path.indexOf("mp3") !== -1;
     }
     enfsfind.find("/home", {filter: filterFn},function(err, listOfItems){
         listOfItems.forEach(function(item){
@@ -113,8 +113,8 @@ No Filter:
 Filter (Function):
 
 ```js
-    function filterFn(item){
-        return item.stat.isFile() && item.path.indexOf("mp3") !== -1;
+    function filterFn(path, stat){
+        return stat.isFile() && path.indexOf("mp3") !== -1;
     }
     var listOfItems = enfsfind.findSync("/home", {filter: filterFn});
     listOfItems.forEach(function(item){

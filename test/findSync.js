@@ -1,7 +1,13 @@
 /**
- * Created by JParreir on 28-12-2015.
+ * @project enfsfind
+ * @filename findSync.js
+ * @description sync methods for finding items inside directories
+ * @author Joao Parreira <joaofrparreira@gmail.com>
+ * @copyright Copyright(c) 2016 Joao Parreira <joaofrparreira@gmail.com>
+ * @licence Creative Commons Attribution 4.0 International License
+ * @createdAt Created at 18-02-2016.
+ * @version 0.0.2
  */
-
 "use strict";
 
 var nodePath = require("path"),
@@ -10,30 +16,18 @@ var nodePath = require("path"),
 describe("enfsfind sync", function() {
     var tmpPath = nodePath.join(__dirname, "..", "lib");
 
-    it("should list files", function(done) {
-        var list;
-        list = find.findSync(tmpPath, "");
-        list.length.should.be.equal(4);
-        done();
+    it("should list files", function() {
+        find.findSync(tmpPath, "").length.should.be.equal(4);
     });
-    it("should list and filter files with regex", function(done) {
-        var list;
-        list = find.findSync(tmpPath, /async/gi);
-        list.length.should.be.equal(1);
-        done();
+    it("should list and filter files with regex", function() {
+        find.findSync(tmpPath, /async/gi).length.should.be.equal(1);
     });
-    it("should list and filter files with function", function(done) {
-        var list;
-        list = find.findSync(tmpPath, function(f) {
-            return /sync/gi.test(f);
-        });
-        list.length.should.be.equal(2);
-        done();
+    it("should list and filter files with function", function() {
+        find.findSync(tmpPath, function(path) {
+            return /sync/gi.test(path);
+        }).length.should.be.equal(2);
     });
-    it("should list and filter files with regex", function(done) {
-        var list;
-        list = find.findSync(tmpPath, /lib/);
-        list.length.should.be.equal(4);
-        done();
+    it("should list and filter files with regex", function() {
+        find.findSync(tmpPath, /lib/).length.should.be.equal(4);
     });
 });
