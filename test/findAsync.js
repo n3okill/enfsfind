@@ -11,11 +11,11 @@
 
 "use strict";
 
-var nodePath = require("path"),
-    find = require("../");
+const nodePath = require("path");
+const find = require("../");
 
 describe("enfsfind async", function() {
-    var tmpPath = nodePath.join(__dirname, "..", "lib");
+    const tmpPath = nodePath.join(__dirname, "..", "lib");
     it("should list files", function(done) {
         find.find(tmpPath, function(err, list) {
             (err === null).should.be.equal(true);

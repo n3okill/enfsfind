@@ -10,12 +10,11 @@
  */
 "use strict";
 
-var nodePath = require("path"),
-    find = require("../");
+const nodePath = require("path");
+const find = require("../");
 
 describe("enfsfind sync", function() {
-    var tmpPath = nodePath.join(__dirname, "..", "lib");
-
+    const tmpPath = nodePath.join(__dirname, "..", "lib");
     it("should list files", function() {
         find.findSync(tmpPath, "").length.should.be.equal(4);
     });

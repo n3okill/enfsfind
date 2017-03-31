@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/enfsfind.png)](https://nodei.co/npm/enfsfind/)
 
-enfslist
+enfsfind
 =========
 Module that add find functionality to node fs module
 
@@ -29,7 +29,7 @@ Usage
 `enfsfind`
 
 ```js
-    var enfsfind = require("enfsfind");
+    const enfsfind = require("enfsfind");
 ```
 
 Errors
@@ -104,7 +104,7 @@ Each item will be an object containing: {path: pathToItem, stat: itemStat}
 No Filter:
 
 ```js
-    var listOfItems = enfsfind.findSync("/home");
+    const listOfItems = enfsfind.findSync("/home");
     listOfItems.forEach(function(item){
         //do something
     });
@@ -116,7 +116,7 @@ Filter (Function):
     function filterFn(path, stat){
         return stat.isFile() && path.indexOf("mp3") !== -1;
     }
-    var listOfItems = enfsfind.findSync("/home", {filter: filterFn});
+    const listOfItems = enfsfind.findSync("/home", {filter: filterFn});
     listOfItems.forEach(function(item){
         //do something
     });
@@ -125,7 +125,7 @@ Filter (Function):
 Filter (RegExp):
 
 ```js
-    var listOfItems = enfsfind.findSync("/home", /\.mp3$/);
+    const listOfItems = enfsfind.findSync("/home", /\.mp3$/);
     listOfItems.forEach(function(item){
         //do something
     });
